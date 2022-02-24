@@ -72,4 +72,4 @@ function predicate(element) {
 
 上面的三種方式可以用一張圖來表示
 
-![Image description](https://github.com/[aryung]/[fp-js]/blob/[main]/assets/01-1.jpg?raw=true)
+![Image description](https://github.com/aryung/fp-js/blob/main/assets/01-1.jpg?raw=true)
