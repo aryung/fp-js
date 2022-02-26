@@ -33,7 +33,8 @@ let y2 = f => g => f(g)
 
 為了避刷閱讀上的困擾或計算上的單純化，我們都儘量把函使用「一個」參數最好了，大家才不會去想參數的位置對不對(但其實也有 combinator 一些函數來處理這個議題，之後可以再做一集做分享)
 
-# Data = FuncitonS + Value
+# Data = Function ( arguements )
+
 如果了解以上的內容，還記的上次提到的 coding style 嗎?
 ```
 let box1 = x => f => g => f(g(x))
@@ -48,4 +49,36 @@ box2(multi3)(add1)(5) // 6
 
 結果(final) = 函數組合(function) + 數值(value) 
 
-只是值要放一開始或最後面而以
+只是值要放一開始或最後面而以。
+
+# 函數式
+
+講了這麼多，來看看有哪些小工具來幫助我們寫程式。
+
+常用的就其實有
+- [Ramda](https://ramdajs.com)
+- [loadash](https://lodash.com)
+- [sanctury-js](https://github.com/sanctuary-js/sanctuary)
+
+Ramda 是把資料放在最後一個，loadash 是把資料當第一個，有興趣的可以去來玩玩。
+我們來看一下 Ramda 的一些示範 code。
+
+```
+// add 為二個數字的函數
+// Number → Number → Number
+R.add(2, 3);       //=>  5
+R.add(7)(10);      //=> 17
+
+// map 的參數為「函數」+「array」
+const double = x => x * 2 // 定義一個函數
+R.map(double, [1, 2, 3]) //=> [2, 4, 6]
+R.map(double, {x: 1, y: 2, z: 3}) //=> {x: 2, y: 4, z: 6}
+
+// filter 的參數為「函數」+「array」
+const isEven = n => n % 2 === 0;
+R.filter(isEven, [1, 2, 3, 4]); //=> [2, 4]
+R.filter(isEven, {a: 1, b: 2, c: 3, d: 4}); //=> {b: 2, d: 4}
+
+// reduce 的參數為「函數」+「起始值」+「array」
+R.reduce(R.subtract, 0, [1, 2, 3, 4])
+```
