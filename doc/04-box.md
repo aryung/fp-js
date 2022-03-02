@@ -27,3 +27,5 @@ function addOne(x) {return x + 1}
 
 # Compose & Pipe
 
+to be continue
+
